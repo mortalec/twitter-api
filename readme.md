@@ -8,7 +8,6 @@ Požadavky
 
 - PHP 7.2
 - Composer
-# TODO log a temp přidat
 
 Instalace
 ------------
