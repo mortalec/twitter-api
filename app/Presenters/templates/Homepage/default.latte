@@ -1,0 +1,22 @@
+{block content}
+
+<div class="container">
+    <div class="row g-3 row-cols-4">
+        {foreach $tweets as $tweet}
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="https://twitter.com/{$tweet->userScreenName}" target="_blank">{$tweet->userName}</a></h5>
+                        <h6 class="card-subtitle mb-2 text-muted">@{$tweet->userScreenName}</h6>
+                        <p class="card-text">{$tweet->text}</p>
+                        <a href="{$tweet->link}" class="card-link" target="_blank">Odkaz</a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">{$tweet->createdAt->format('H:i d.m.Y')}</small>
+                    </div>
+                </div>
+            </div>
+        {/foreach}
+    </div>
+</div>
+

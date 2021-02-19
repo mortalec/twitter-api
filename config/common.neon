@@ -1,0 +1,27 @@
+parameters:
+	twitter:
+		bearerToken: "AAAAAAAAAAAAAAAAAAAAAF1xMwEAAAAArwwn8GC9uufTkP5jXVa%%2FCi1y%%2BS0%3DzdRhzOp5vA7CTTxRtSQ6w9mdetgiXzyV09RlVw1BF8O6X24Qb4"
+		endpoints:
+		    getTweets: https://api.twitter.com/1.1/search/tweets.json
+
+application:
+	errorPresenter: Error
+	mapping:
+		*: App\*Module\Presenters\*Presenter
+
+
+session:
+	expiration: 14 days
+
+
+di:
+	export:
+		parameters: no
+		tags: no
+
+
+services:
+	- App\Router\RouterFactory::createRouter
+
+	- App\Model\TwitterClient(%twitter%)
+	- App\Model\TweetsManager(%wwwDir%, ...)
